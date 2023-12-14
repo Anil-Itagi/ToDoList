@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            width: 100%;
+            height: 500px;
+            background-color: rgb(107, 107, 234);
+        }
+        
+        #inner {
+            text-align: center;
+            height: 400px;
+            width: 60%;
+            align: center;
+            background-color: rgb(223, 234, 13);
+            margin-top: 100px;
+            margin-left: 20%;
+        }
+        
+        #first {
+            width: 100%;
+            height: 50px;
+            background-color: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        
+        #sec {
+            width: 60%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        
+        #txt {
+            width: 90%;
+            height: 40px;
+        }
+        
+        #remove {
+            margin-left: 30%;
+        }
+        
+        #txt1 {
+            width: 30%;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center;">WRITE WHAT YOU WANT</h1>
+    <div id="cont">
+        <div id="inner">
+            <div id="first"><input type="text" id="txt" placeholder="Enter What You want"> <button type="submit" onclick="myfun()" style="width:50px; height:45px">ADD</button>
+
+            </div>
+            <div id="sec"></div>
+        </div>
+        <div id="remove"> <input type="number" id="txt1" placeholder="Enter No To Remove">
+            <button id="rem" onclick="remove()">Remove</button></div>
+    </div>
+    <script>
+        let a = [];
+
+        function myfun() {
+            let x = document.getElementById("txt").value;
+            a.push(x);
+            show();
+        }
+
+        function remove() {
+            let v = document.getElementById("txt1").value;
+            document.getElementById("sec").innerHTMl = "hi";
+            if (v <= a.length) {
+                a.splice(v - 1, 1);
+                show();
+            } else
+                alert("Error");
+        }
+
+        function show() {
+            document.getElementById("sec").innerHTML = "";
+            let text = "<ul>";
+            for (let i = 0; i < a.length; i++) {
+                text += "<li>" + (i + 1) + ") " + a[i] + " </li>";
+            }
+            text += "</ul>";
+            document.getElementById("sec").innerHTML = text;
+        }
+    </script>
+</body>
+
+</html>
